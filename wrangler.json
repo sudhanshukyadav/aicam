@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "aisys",
+  "main": "worker.js",
+  "compatibility_date": "2024-09-23",
+  "assets": {
+    "directory": "./public"
+  },
+  "routes": [
+    {
+      "pattern": "aisys.cam/*",
+      "zone_name": "aisys.cam"
+    },
+    {
+      "pattern": "www.aisys.cam/*",
+      "zone_name": "aisys.cam"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "WAITLIST_KV",
+      "id": "45b60fcb4dec4f21aeebe17f05f9a4b5"
+    }
+  ],
+  "services": [
+    {
+      "binding": "DB_SERVICE",
+      "service": "aisys-db",
+      "entrypoint": "DbService"
+    }
+  ]
+}
